@@ -1,0 +1,100 @@
+<aiml version="1.0.1" encoding="UTF-8">
+<!-- basic_chat.aiml -->
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>How may I help you?</template>
+    </category>
+
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            <srai>HELLO</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>I WANT TO BOOK A ROOM</pattern>
+        <template>What kind of room you would like?AC/NON-AC</template>
+    </category>
+
+    <category>
+        <pattern>DO YOU HAVE A ROOM</pattern>
+        <template>
+            <srai>I WANT TO BOOK A ROOM</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>I want * room</pattern>
+        <template><think><set name="ac"><star/></set></think>How many rooms do you want??</template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template><think><set name="number"><star/></set></think>When do you want to do bookings for?</template>
+    </category>
+
+    <category>
+        <pattern>BOOKING DATE *</pattern>
+        <template><think><set name="date"><star/></set></think>What would be the duration of your stay</template>
+    </category>
+
+    <category>
+        <pattern>* DAYS</pattern>
+        <template><think><set name="days"><star/></set></think>May I know your name.</template>
+    </category>
+
+    <category>
+        <pattern>My name is *</pattern>
+        <template>You want to place booking or make some changes<think><set name="name"><star/></set></think></template>
+    </category>
+
+    <category>
+        <pattern>MAKE CHANGES</pattern>
+        <template>What changes you would like to make?</template>
+    </category>
+
+    <category>
+        <pattern>PLACE BOOKING</pattern>
+        <template>NAME:<get name="name"></get> ROOM TYPE:<get name="ac"></get> NUMBER:<get name="number"></get>BOOKING DATE:<get name="date"></get> DURATION:<get name="days"></get> PRICE:****
+        Please proceed to payment.sbi to place payment and enter payment code</template>
+    </category>
+
+    <category>
+        <pattern>CHANGE ROOMS TO *</pattern>
+        <template><think><set name="ac"><star/></set></think>Place booking or make changes </template>
+    </category>
+
+    <category>
+        <pattern>CHANGE NUMBER TO *</pattern>
+        <template><think><set name="number"><star/></set></think>Place booking or make changes</template>
+    </category>
+
+    <category>
+        <pattern>change name to *</pattern>
+        <template>You want to place booking or make some changes<think><set name="name"><star/></set></think></template>
+    </category>
+
+    <category>
+        <pattern>CHANGE BOOKING DATE TO *</pattern>
+        <template><think><set name="date"><star/></set></think>Place booking or make changes</template>
+    </category>
+
+    <category>
+        <pattern>CHANGE STAY TO * DAYS</pattern>
+        <template><think><set name="days"><star/></set></think>May I know your name.</template>
+    </category>
+
+    <category>
+        <pattern>CODE *</pattern>
+        <template>
+            <random>
+                <li>HOPE YOU HAVE A GOOD STAY</li>
+                <li>HAVE A GOOD DAY</li>
+                <li>LOOKING FORWARD TO YOUR STAY</li>
+            </random>
+        </template>
+    </category>
+      
+</aiml>
